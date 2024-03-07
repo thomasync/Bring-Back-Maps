@@ -17,6 +17,5 @@
 			"matches": ["https://www.google.fr/search*", "https://google.com/search*"]
 		}
 	],
-	"permissions": ["scripting"],
-	"host_permissions": ["https://www.google.fr/", "https://google.com/"]
+	"permissions": ["scripting"]
 }
