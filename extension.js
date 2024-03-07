@@ -1,4 +1,7 @@
 !(() => {
+	let loaded = false;
+	let load_timeout = 2000;
+
 	function addHyperLinkMap(map, adress) {
 		if (map && adress) {
 			map.style.cursor = 'pointer';
@@ -26,14 +29,27 @@
 			`;
 		mapsTab.className = 'nPDzT T3FoJb';
 		mapsTab.href = adress;
-
-		// prepend to the tabs
 		tabs.insertBefore(mapsTab, tabs.firstChild);
 	}
 
 	function formatSearchLink(search) {
 		search = encodeURIComponent(search);
 		return `https://www.google.com/maps/search/${search}`;
+	}
+
+	function waitLoaded() {
+		if (loaded) {
+			return;
+		}
+
+		if (load_timeout <= 0) {
+			return;
+		}
+
+		app();
+
+		load_timeout -= 100;
+		setTimeout(waitLoaded, 100);
 	}
 
 	function app() {
@@ -50,11 +66,13 @@
 		if (map && adress) {
 			addHyperLinkMap(map, adress);
 			addMapsToTabs(tabs, adress.href);
+			loaded = true;
 		} else if (largeMap && search) {
 			addHyperLinkLargeMap(largeMap, search);
 			addMapsToTabs(tabs, formatSearchLink(search.value));
+			loaded = true;
 		}
 	}
 
-	window.addEventListener('load', app);
+	waitLoaded();
 })();
