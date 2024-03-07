@@ -1,0 +1,22 @@
+{
+	"name": "Bring Back Maps",
+	"author": "thomasync",
+	"description": "This extension brings back the old Google Search to include Google Maps results",
+	"homepage_url": "https://github.com/thomasync/Bring-Back-Maps",
+	"version": "0.0.1",
+	"icons": {
+		"1024": "icons/1024.png",
+		"128": "icons/128.png",
+		"64": "icons/64.png"
+	},
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"run_at": "document_start",
+			"js": ["extension.js"],
+			"matches": ["https://www.google.fr/search*", "https://google.com/search*"]
+		}
+	],
+	"permissions": ["scripting"],
+	"host_permissions": ["https://www.google.fr/", "https://google.com/"]
+}
