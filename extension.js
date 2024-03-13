@@ -2,11 +2,11 @@
 	let loaded = false;
 	let load_timeout = 2000;
 
-	function addHyperLinkMap(map, adress) {
-		if (map && adress) {
+	function addHyperLinkMap(map, address) {
+		if (map && address) {
 			map.style.cursor = 'pointer';
 			map.addEventListener('click', () => {
-				window.location.href = adress.href;
+				window.location.href = address.href;
 			});
 		}
 	}
@@ -20,7 +20,7 @@
 		}
 	}
 
-	function addMapsToTabs(tabs, adress) {
+	function addMapsToTabs(tabs, address) {
 		const mapsTab = document.createElement('a');
 		mapsTab.innerHTML = `
 				<div jsname="bVqjv" class="GKS7s">
@@ -28,7 +28,7 @@
 				</div>
 			`;
 		mapsTab.className = 'nPDzT T3FoJb';
-		mapsTab.href = adress;
+		mapsTab.href = address;
 		tabs.insertBefore(mapsTab, tabs.firstChild);
 	}
 
@@ -56,16 +56,16 @@
 		const search = document.querySelector('textarea.gLFyf');
 		const tabs = document.querySelector('.IUOThf');
 		const map = document.querySelector('.Ggdpnf');
-		const adress = document.querySelector('.gqkR3b a');
+		const address = document.querySelector('.gqkR3b a');
 		const largeMap = document.querySelector('.o8ebK');
 
 		if (!tabs) {
 			return;
 		}
 
-		if (map && adress) {
-			addHyperLinkMap(map, adress);
-			addMapsToTabs(tabs, adress.href);
+		if (map && address) {
+			addHyperLinkMap(map, address);
+			addMapsToTabs(tabs, address.href);
 			loaded = true;
 		} else if (largeMap && search) {
 			addHyperLinkLargeMap(largeMap, search);
