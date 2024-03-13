@@ -3,7 +3,7 @@
 	"author": "thomasync",
 	"description": "This extension brings back the old Google Search to include Google Maps results",
 	"homepage_url": "https://github.com/thomasync/Bring-Back-Maps",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"icons": {
 		"1024": "icons/1024.png",
 		"128": "icons/128.png",
